@@ -1,9 +1,13 @@
-#car {
+body {
+  background-color: rgba(0, 0, 0, 0.137);
+}
+
+img {
   transform-origin: center;
 }
 
 .north {
-  rotate: 0;
+  transform: rotate(0);
 }
 
 .east {
