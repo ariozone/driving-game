@@ -6,3 +6,4 @@ class Car {
     this.location = location
   }
 }
+var carImage = document.createElement('img')
