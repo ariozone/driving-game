@@ -9,3 +9,4 @@ class Car {
 var carImage = document.createElement('img')
 carImage.setAttribute('src', 'https://png.pngtree.com/element_pic/00/16/09/1457d88da8f2389.jpg')
 document.body.appendChild(carImage)
+var car = new Car(carImage, 10, 'north', [0, 0])
