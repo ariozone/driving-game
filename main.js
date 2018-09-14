@@ -39,6 +39,8 @@ class Car {
       case 'west':
         this.location[0] -= this.speed
     }
+    this.$img.setAttribute('style', 'left' + this.location[0] + 'px;')
+    this.$img.setAttribute('style', 'top' + this.location[1] + 'px;')
   }
 
 }
