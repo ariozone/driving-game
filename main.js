@@ -25,6 +25,22 @@ class Car {
         this.$img.classList.remove('east', 'north', 'south')
     }
   }
+  move() {
+    switch (this.direction) {
+      case 'north':
+        this.location[1] += this.speed
+        break
+      case 'south':
+        this.location[1] -= this.speed
+        break
+      case 'east':
+        this.location[0] += this.speed
+        break
+      case 'west':
+        this.location[0] -= this.speed
+    }
+  }
+
 }
 var carImage = document.createElement('img')
 carImage.setAttribute('src', 'http://cdn.framesynthesis.com/html5/drivingsimulatorgm/2014090110/assets/car.png')
