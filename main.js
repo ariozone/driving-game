@@ -28,27 +28,30 @@ class Car {
   move() {
     switch (this.direction) {
       case 'north':
-        this.location[1] += this.speed
+        this.location[1] -= this.speed
         break
       case 'south':
-        this.location[1] -= this.speed
+        this.location[1] += this.speed
         break
       case 'east':
         this.location[0] += this.speed
         break
       case 'west':
         this.location[0] -= this.speed
+        break
     }
-    this.$img.setAttribute('style', 'left' + this.location[0] + 'px;')
-    this.$img.setAttribute('style', 'top' + this.location[1] + 'px;')
+    this.$img.setAttribute('style', 'top:' + this.location[1] + 'px; left:' + this.location[0] + 'px;')
   }
-
+  start() {
+    var drive = car.move.bind(car)
+    setInterval(drive, 16)
+  }
 }
 var carImage = document.createElement('img')
 carImage.setAttribute('src', 'http://cdn.framesynthesis.com/html5/drivingsimulatorgm/2014090110/assets/car.png')
 document.body.appendChild(carImage)
 
-var car = new Car(carImage, 10, 'south', [0, 0])
+var car = new Car(carImage, 10, 'north', [580, 700])
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowUp') {
@@ -63,4 +66,8 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowLeft') {
     car.turn('west')
   }
+})
+document.addEventListener('keydown', function(e) {
+  if (e.key !== ' ') return
+  car.start()
 })
