@@ -31,6 +31,7 @@ carImage.setAttribute('src', 'http://cdn.framesynthesis.com/html5/drivingsimulat
 document.body.appendChild(carImage)
 
 var car = new Car(carImage, 10, 'south', [0, 0])
+
 document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowUp') {
     car.turn('north')
@@ -45,6 +46,3 @@ document.addEventListener('keydown', function (e) {
     car.turn('west')
   }
 })
-
-// carImage.classList.add('west')
-// carImage.classList.add('south')
