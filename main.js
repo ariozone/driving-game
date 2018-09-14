@@ -67,7 +67,7 @@ document.addEventListener('keydown', function (e) {
     car.turn('west')
   }
 })
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
   if (e.key !== ' ') return
   car.start()
 })
