@@ -46,6 +46,9 @@ class Car {
     var drive = this.move.bind(this)
     setInterval(drive, 16)
   }
+  stop() {
+    window.clearInterval(this.drive)
+  }
 }
 var carImage = document.createElement('img')
 carImage.setAttribute('src', 'http://cdn.framesynthesis.com/html5/drivingsimulatorgm/2014090110/assets/car.png')
@@ -68,6 +71,12 @@ document.addEventListener('keydown', function (e) {
   }
 })
 document.addEventListener('keydown', function (e) {
-  if (e.key !== ' ') return
-  car.start()
+  if (e.key === ' ') {
+    if (car.drive) {
+      car.stop()
+    }
+    else {
+      car.start()
+    }
+  }
 })
