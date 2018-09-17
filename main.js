@@ -43,8 +43,10 @@ class Car {
     this.$img.setAttribute('style', 'top:' + this.location[1] + 'px; left:' + this.location[0] + 'px;')
   }
   start() {
-    var drive = this.move.bind(this)
-    setInterval(drive, 16)
+    this.drive = window.setInterval(this.move.bind(this), 16)
+  }
+  stop() {
+    window.clearInterval(this.drive)
   }
 }
 var carImage = document.createElement('img')
@@ -67,7 +69,17 @@ document.addEventListener('keydown', function (e) {
     car.turn('west')
   }
 })
+var isMoving = false
 document.addEventListener('keydown', function (e) {
-  if (e.key !== ' ') return
-  car.start()
+  if (e.key === ' ') {
+    if (!isMoving) {
+      car.start()
+      isMoving = true
+    }
+    else {
+      car.stop()
+      isMoving = false
+
+    }
+  }
 })
